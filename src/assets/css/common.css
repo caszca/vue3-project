@@ -1,10 +1,28 @@
 :root {
     --primary-color: #ff9854;
-
-    /* 全局修改: 任何地方只要用到-van-tabbar-item-icon-size都会被修改掉 */
-    /* --van-tabbar-item-icon-size: 30px !important; */
+    --van-search-left-icon-color: var(--primary-color) !important
+        /* 全局修改: 任何地方只要用到-van-tabbar-item-icon-size都会被修改掉 */
+        /* --van-tabbar-item-icon-size: 30px !important; */
 }
 
 body {
     font-size: 14px;
+}
+
+/* 遮住底部导航栏，方法一 */
+.hideBottomNav {
+    position: relative;
+    z-index: 5;
+    height: 100vh;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.message {
+    font-size: 10px;
+    color: #999;
+}
+
+.boder-bottom-line {
+    border-bottom: 1px solid #faf8f9;
 }
