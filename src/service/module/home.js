@@ -8,3 +8,18 @@ export const getHotSuggestsCities = () => {
         method: 'GET'
     })
 }
+export const getCategories = () => {
+    return axios({
+        url: '/home/categories',
+        method: 'GET'
+    })
+}
+
+export const getHouseList = (currentPage) => {
+    return axios({
+        url: '/home/houselist',
+        params: {
+            page: currentPage
+        }
+    })
+}

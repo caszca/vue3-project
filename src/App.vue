@@ -4,6 +4,7 @@ import tabBar from "@/components/tabBar/tabBar.vue";
 
 <template>
   <router-view></router-view>
+
   <tabBar />
 </template>
 

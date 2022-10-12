@@ -1,5 +1,7 @@
 <script setup>
 import navLocation from "./cpns/navLocation.vue";
+import categories from "./cpns/categories.vue";
+import homeContent from "./cpns/homeContent.vue";
 </script>
 
 <template>
@@ -10,6 +12,8 @@ import navLocation from "./cpns/navLocation.vue";
     <img src="@/assets/img/home/banner.webp" alt="" />
   </div>
   <navLocation />
+  <categories />
+  <homeContent />
 </template>
 
 <style lang='less' scoped>

@@ -22,3 +22,7 @@ a {
 img {
     vertical-align: top;
 }
+
+div {
+    box-sizing: border-box;
+}

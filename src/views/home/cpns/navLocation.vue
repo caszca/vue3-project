@@ -40,9 +40,15 @@ endTime.value = addOneDay(new Date());
 const stayTime = ref(1);
 const onConfirm = (value) => {
   show.value = false;
+
   stayTime.value = getstayDay(value[0], value[1]);
   startTime.value = formatDate(value[0]);
   endTime.value = formatDate(value[1]);
+};
+
+//开始搜索按钮跳转
+const startSearch = () => {
+  router.push("/search");
 };
 </script>
 
@@ -101,6 +107,9 @@ const onConfirm = (value) => {
       </div>
     </template>
   </div>
+
+  <div class="btn" @click="startSearch">开始搜索</div>
+  <div class="tips message">民宿预定服务由途家网提供</div>
 </template>
 
 <style lang='less'>
@@ -127,7 +136,7 @@ const onConfirm = (value) => {
   display: flex;
   justify-content: space-between;
   height: 44px;
-  padding: 0 25px 0 20px;
+  padding: 0 25px 0 20px; //可以抽取到公共样式
   .startTime {
     display: flex;
     flex-direction: column;
@@ -178,5 +187,25 @@ const onConfirm = (value) => {
     border-radius: 10px;
     margin: 5px 5px 0 0;
   }
+}
+
+.btn {
+  text-align: center;
+  line-height: 36px;
+  height: 36px;
+  font-size: 18px;
+  color: #ffff;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  margin: 20px 25px 0 20px;
+  border-radius: 18px;
+}
+
+.tips {
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
 }
 </style>
