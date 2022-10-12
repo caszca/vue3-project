@@ -4,8 +4,9 @@ import useHomestore from "@/stores/module/home";
 import { storeToRefs } from "pinia";
 import houseV9 from "@/components/houseV9/houseV9.vue";
 import houseV3 from "@/components/houseV3/houseV3.vue";
-
+import searchBar from "@/components/searchBar/searchBar.vue";
 //滑动底部hook
+//一个撤销把hooks文件名改了
 import useScroll from "@/hooks/useScroll";
 const homeStore = useHomestore();
 homeStore.fitchHouseList();
@@ -14,15 +15,16 @@ const add = () => {
   homeStore.fitchHouseList();
 };
 
-//const { ifBottom } = useScroll();
-//
-//watch(ifBottom, () => {
-//  homeStore.fitchHouseList();
-//  ifBottom.value = false;
-//});
-</script>
+const { ifBottom, scrollTop } = useScroll();
 
+watch(ifBottom, () => {
+  homeStore.fitchHouseList();
+  ifBottom.value = false;
+});
+</script>
+ 
 <template>
+  <searchBar v-show="scrollTop >= 360" />
   <div class="homeContent">
     <div class="prompt">热门精选</div>
     <div class="houseList">

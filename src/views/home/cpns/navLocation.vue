@@ -1,17 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import useCityStore from "@/stores/module/city";
 import { formatDate, addOneDay, getstayDay } from "@/utils/dayjs";
 import useHomestore from "@/stores/module//home";
 import { storeToRefs } from "pinia";
+import useMainStore from "@/stores/module/main";
+const mainStore = useMainStore();
 
+const cityStore = useCityStore();
+const router = useRouter();
 const homeStore = useHomestore();
 //homeStore.fitchHotSuggestsCities();
 homeStore.fitchHotSuggestsCities();
 const { hotSuggestsCities } = storeToRefs(homeStore);
-const cityStore = useCityStore();
-const router = useRouter();
 
 //直接获取当前位置
 const getPosition = () => {
@@ -31,17 +33,30 @@ const searchCity = () => {
 const show = ref(false);
 
 //获取日历选择日期
+
+//最原始的未加工时间数据
+const oldStartTime = ref(new Date());
+const oldEndTime = ref(addOneDay(new Date()));
+
+//添加store里时间数据
+const { startDate, endDate } = storeToRefs(mainStore);
+startDate.value = computed(() => oldStartTime.value);
+endDate.value = computed(() => oldEndTime.value);
+
 const startTime = ref();
-startTime.value = formatDate(new Date());
+startTime.value = formatDate(oldStartTime.value);
 
 const endTime = ref();
-endTime.value = addOneDay(new Date());
+endTime.value = formatDate(oldEndTime.value);
 
 const stayTime = ref(1);
+
 const onConfirm = (value) => {
   show.value = false;
 
   stayTime.value = getstayDay(value[0], value[1]);
+  oldStartTime.value = value[0];
+  oldEndTime.value = value[1];
   startTime.value = formatDate(value[0]);
   endTime.value = formatDate(value[1]);
 };

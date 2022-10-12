@@ -5,8 +5,9 @@ import { throttle } from 'underscore'
 
 const useScroll = () => {
     const ifBottom = ref(false)
+    const scrollTop = ref(0)
     const getHouseData = throttle(() => {
-        const scrollTop = document.documentElement.scrollTop;
+        scrollTop.value = document.documentElement.scrollTop;
         const clientHeight = document.documentElement.clientHeight;
         const scrollHeight = document.documentElement.scrollHeight;
 
@@ -23,7 +24,7 @@ const useScroll = () => {
         onUnmounted(() => {
             window.removeEventListener("scroll", getHouseData);
         });
-    return { ifBottom }
+    return { ifBottom, scrollTop }
 }
 
 export default useScroll
