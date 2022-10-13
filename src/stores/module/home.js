@@ -25,6 +25,7 @@ const useHomestore = defineStore('home', {
             const { data: { data } } = await getHouseList(this.currentPage)
             this.homeList.push(...data)//新数据，要与旧数据同时存在,注意此时扩展运算符
             this.currentPage += 1
+            console.log(1)
         }
     }
 })

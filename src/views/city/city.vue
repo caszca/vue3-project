@@ -4,6 +4,7 @@ import { useRouter } from "vue-router";
 import useCityStore from "@/stores/module/city";
 import { storeToRefs } from "pinia";
 import cityIndexItem from "./cpns/cityIndexItem.vue";
+import loading from "@/components/loading/loading.vue";
 //city的store里取城市数据
 const cityStore = useCityStore();
 cityStore.fetchAllCityData();
@@ -26,6 +27,7 @@ const currentCityData = computed(() => allCityData.value[active.value]);
 
 <template>
   <div class="search hideBottomNav">
+    <loading />
     <div class="top">
       <van-search
         v-model="serachCity"

@@ -10,8 +10,8 @@ const useScroll = () => {
         scrollTop.value = document.documentElement.scrollTop;
         const clientHeight = document.documentElement.clientHeight;
         const scrollHeight = document.documentElement.scrollHeight;
-
-        if (scrollTop + clientHeight >= scrollHeight) {
+        console.log(scrollTop.value, clientHeight, scrollHeight, scrollTop);
+        if (scrollTop.value + clientHeight >= scrollHeight) {
 
             ifBottom.value = true
         }

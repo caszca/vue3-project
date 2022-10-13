@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted, watch } from "vue";
+import { watch } from "vue";
 import useHomestore from "@/stores/module/home";
 import { storeToRefs } from "pinia";
 import houseV9 from "@/components/houseV9/houseV9.vue";
@@ -11,9 +11,6 @@ import useScroll from "@/hooks/useScroll";
 const homeStore = useHomestore();
 homeStore.fitchHouseList();
 const { homeList } = storeToRefs(homeStore);
-const add = () => {
-  homeStore.fitchHouseList();
-};
 
 const { ifBottom, scrollTop } = useScroll();
 
@@ -24,8 +21,8 @@ watch(ifBottom, () => {
 </script>
  
 <template>
-  <searchBar v-show="scrollTop >= 360" />
   <div class="homeContent">
+    <searchBar v-show="scrollTop >= 360" />
     <div class="prompt">热门精选</div>
     <div class="houseList">
       <template v-for="(item, index) in homeList" :key="item.data.houseId">

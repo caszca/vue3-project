@@ -2,6 +2,7 @@
 import navLocation from "./cpns/navLocation.vue";
 import categories from "./cpns/categories.vue";
 import homeContent from "./cpns/homeContent.vue";
+import loading from "@/components/loading/loading.vue";
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import homeContent from "./cpns/homeContent.vue";
     <navLocation />
     <categories />
     <homeContent />
+    <loading />
   </div>
 </template>
 
