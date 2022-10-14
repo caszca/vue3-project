@@ -8,6 +8,8 @@ import searchBar from "@/components/searchBar/searchBar.vue";
 //滑动底部hook
 //一个撤销把hooks文件名改了
 import useScroll from "@/hooks/useScroll";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const homeStore = useHomestore();
 homeStore.fitchHouseList();
 const { homeList } = storeToRefs(homeStore);
@@ -18,6 +20,11 @@ watch(ifBottom, () => {
   homeStore.fitchHouseList();
   ifBottom.value = false;
 });
+
+//点击house跳转到详情
+const houseClick = (id) => {
+  router.push(`/houseDetail/${id}`);
+};
 </script>
  
 <template>
@@ -29,10 +36,12 @@ watch(ifBottom, () => {
         <houseV3
           v-if="item.discoveryContentType === 3"
           :houseList="item.data"
+          @click="houseClick(item.data?.houseId)"
         /><!-- v-if成立时，才会传入prop -->
         <houseV9
           v-else-if="item.discoveryContentType === 9"
           :houseList="item.data"
+          @click="houseClick(item.data?.houseId)"
         />
       </template>
     </div>

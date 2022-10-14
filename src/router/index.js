@@ -28,6 +28,12 @@ const routes = [
     {
         path: '/search',
         component: () => import('@/views/search/search.vue')
+    },
+    {
+        path: '/houseDetail/:id',
+        component: () => import('@/views/houseDetail/houseDetail.vue'),
+
+
     }
 ]
 
