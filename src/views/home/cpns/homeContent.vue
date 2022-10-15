@@ -1,26 +1,18 @@
 <script setup>
-import { watch } from "vue";
 import useHomestore from "@/stores/module/home";
 import { storeToRefs } from "pinia";
 import houseV9 from "@/components/houseV9/houseV9.vue";
 import houseV3 from "@/components/houseV3/houseV3.vue";
-import searchBar from "@/components/searchBar/searchBar.vue";
+
 //滑动底部hook
 //一个撤销把hooks文件名改了
-import useScroll from "@/hooks/useScroll";
+
 import { useRouter } from "vue-router";
 const router = useRouter();
+
 const homeStore = useHomestore();
-homeStore.fitchHouseList();
+
 const { homeList } = storeToRefs(homeStore);
-
-const { ifBottom, scrollTop } = useScroll();
-
-watch(ifBottom, () => {
-  homeStore.fitchHouseList();
-  ifBottom.value = false;
-});
-
 //点击house跳转到详情
 const houseClick = (id) => {
   router.push(`/houseDetail/${id}`);
@@ -29,7 +21,6 @@ const houseClick = (id) => {
  
 <template>
   <div class="homeContent">
-    <searchBar v-show="scrollTop >= 360" />
     <div class="prompt">热门精选</div>
     <div class="houseList">
       <template v-for="(item, index) in homeList" :key="item.data.houseId">

@@ -4,27 +4,33 @@ import useHouseDetailStore from "@/stores/module/houseDetail";
 import { storeToRefs } from "pinia";
 
 const houseStore = useHouseDetailStore();
+
 const { houseDetailData } = storeToRefs(houseStore);
-const housePics = ref();
+
+const housePics = ref({});
+
 const imgGroup = ref({});
+
 //获取图片
-if (houseDetailData.value.mainPart) {
-  housePics.value =
-    houseDetailData.value.mainPart.topModule.housePicture.housePics;
+//分类图片
+watch(
+  () => houseDetailData.value,
+  (newValue, oldValue) => {
+    housePics.value =
+      houseDetailData.value.mainPart.topModule.housePicture.housePics;
+    for (const element of housePics.value) {
+      if (imgGroup.value[element.enumPictureCategory]) {
+        imgGroup.value[element.enumPictureCategory] = [
+          ...imgGroup.value[element.enumPictureCategory],
+          element,
+        ];
+      } else imgGroup.value[element.enumPictureCategory] = [element];
+    }
+  },
+  { deep: true }
+);
 
-  //分类图片
-
-  for (const element of housePics.value) {
-    if (imgGroup.value[element.enumPictureCategory]) {
-      imgGroup.value[element.enumPictureCategory] = [
-        ...imgGroup.value[element.enumPictureCategory],
-        element,
-      ];
-    } else imgGroup.value[element.enumPictureCategory] = [element];
-  }
-
-  console.log(imgGroup.value);
-}
+//console.log(imgGroup.value);
 
 const clearTitle = (title) => {
   return title.replace("：", "").replace("【", "").replace("】", "");
