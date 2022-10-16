@@ -1,4 +1,5 @@
 <script setup>
+import { reactive, ref } from "vue";
 import tabBar from "@/components/tabBar/tabBar.vue";
 </script>
 
