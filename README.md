@@ -1,8 +1,9 @@
 # vue3-project
 
 接口地址有：
-http://123.207.32.32:1888/api/city/all
-http://123.207.32.32:1888/api/home/hotSuggests
+https://documenter.getpostman.com/view/12387168/UzXPxcSi#d95216cd-4bbd-412e-a015-a8efaa012149
+注意城市详情正确接口为：
+http://codercba.com:1888/detail/infos?houseId=44173741
 
 ## Project Setup
 
