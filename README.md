@@ -1,5 +1,7 @@
 # vue3-project
 
+项目技术：pinia+vue3+vueRouter
+
 接口地址有：
 https://documenter.getpostman.com/view/12387168/UzXPxcSi#d95216cd-4bbd-412e-a015-a8efaa012149
 
@@ -7,10 +9,14 @@ https://documenter.getpostman.com/view/12387168/UzXPxcSi#d95216cd-4bbd-412e-a015
 http://codercba.com:1888/detail/infos?houseId=44173741
 
 
-![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img.png)
+![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img.png)    ![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img1.png) 
+   
+  ![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img3.png)
 
-![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img1.png)
-## Project Setup
+  ![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img4.png) ![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img2.png) 
+
+
+## Project Setup   
 
 ```sh
 npm install
