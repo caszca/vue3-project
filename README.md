@@ -8,6 +8,8 @@ http://codercba.com:1888/detail/infos?houseId=44173741
 
 
 ![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img.png)
+
+![image](https://github.com/caszca/vue3-project/blob/master/imgShow/img1.png)
 ## Project Setup
 
 ```sh
