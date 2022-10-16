@@ -1,6 +1,6 @@
 # vue3-project
 
-项目技术：pinia+vue3+vueRouter
+项目技术：pinia+vue3+vueRouter+vite
 
 接口地址有：
 https://documenter.getpostman.com/view/12387168/UzXPxcSi#d95216cd-4bbd-412e-a015-a8efaa012149
